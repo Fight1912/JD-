@@ -1,0 +1,254 @@
+body {
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 14px;
+    font-family: "-apple-system, Helvetica, sans-serif";
+    /* 相对于font-size的大小 */
+    line-height: 1.5;
+}
+
+
+/*点击高亮我们需要清除清除  设置为transparent 完成透明*/
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/*在移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式*/
+
+input {
+    -webkit-appearance: none;
+}
+
+
+/*禁用长按页面时的弹出菜单*/
+
+img,
+a {
+    -webkit-touch-callout: none;
+}
+
+
+/* img是行内块元素 */
+
+
+/* 防止下面的盒子和图片有间隙 */
+
+img {
+    vertical-align: middle;
+}
+
+.app {
+    height: 45px;
+}
+
+.app ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.app ul li {
+    float: left;
+    height: 45px;
+    /* 有一点不明白，下面两个属性不是针对文字吗，可是这上面是img标签 */
+    text-align: center;
+    line-height: 45px;
+    background-color: #333333;
+    /* 文字属性 */
+    color: #fff;
+}
+
+.app ul li:nth-child(1) {
+    width: 8%;
+}
+
+.app ul li:nth-child(1) img {
+    /* 只设置宽度，可以等比例缩放 */
+    width: 10px;
+    /* height: 10px; */
+}
+
+.app ul li:nth-child(2) {
+    width: 10%;
+}
+
+.app ul li:nth-child(2) img {
+    width: 30px;
+    /* 放在父元素的中部 */
+    vertical-align: middle;
+}
+
+.app ul li:nth-child(3) {
+    width: 57%;
+}
+
+.app ul li:nth-child(4) {
+    width: 25%;
+    background-color: #F63515;
+}
+
+.search-wrap {
+    position: fixed;
+    /* 塌陷原因：父级盒子下面的子盒子search有margin-top值，所以会出现和父盒子一起塌陷 的情况 */
+    overflow: hidden;
+    height: 44px;
+    /* 固定定位需要给定宽度 */
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+}
+
+.search-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 44px;
+}
+
+
+/* 伪元素选择器，属于行内元素，不能设置大小 */
+
+.search-btn::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 18px;
+    background: url(../images/s-btn.png) no-repeat;
+    /* 因为图片太大，会撑大盒子，所以需要用到这个属性 */
+    background-size: 20px 18px;
+    margin: 14px 0 0 15px;
+}
+
+.search-login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    /* 注意height是不可继承的 */
+    height: 44px;
+    color: #fff;
+    /* 垂直居中 */
+    line-height: 44px;
+}
+
+.search {
+    position: relative;
+    height: 30px;
+    background-color: #fff;
+    margin: 0 50px;
+    border-radius: 15px;
+    margin-top: 7px;
+}
+
+.jd-icon {
+    width: 20px;
+    height: 15px;
+    position: absolute;
+    top: 8px;
+    left: 13px;
+    background: url(../images/jd.png) no-repeat;
+    /* 解决图片显示不全  缩放图片*/
+    background-size: 20px 15px;
+}
+
+.jd-icon::after {
+    content: "";
+    position: absolute;
+    right: -8px;
+    top: 0;
+    display: block;
+    width: 1px;
+    height: 15px;
+    background-color: #ccc;
+}
+
+.sou {
+    position: absolute;
+    top: 8px;
+    left: 50px;
+    width: 18px;
+    height: 15px;
+    background: url(../images/jd-sprites.png) no-repeat -81px 0;
+    /* 精灵图缩放为原来的一半 */
+    background-size: 200px auto;
+}
+
+.slider img {
+    width: 100%;
+}
+
+
+/* 品牌日 */
+
+.brand {
+    /* 当图片超出盒子大小时，超出的部分隐藏掉 */
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.brand div {
+    float: left;
+    width: 33.33%;
+}
+
+.brand div img {
+    /* 使得图片的宽度和div一样宽 */
+    width: 100%;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+nav a {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+
+/* img是行内块元素，span是行内元素/ */
+
+nav a img {
+    width: 40px;
+    margin: 10px 0;
+}
+
+nav a span {
+    display: block;
+}
+
+
+/* news部分 */
+
+.news {
+    margin-top: 20px;
+}
+
+.news img {
+    width: 100%;
+}
+
+.news a {
+    float: left;
+    /* border不会撑开盒子 */
+    box-sizing: border-box;
+}
+
+.news a:nth-child(1) {
+    width: 50%;
+}
+
+
+/* n+2就是从第二个开始（包括第二个）往后选 */
+
+.news a:nth-child(n+2) {
+    width: 25%;
+    border-left: 1px solid #ccc;
+}
